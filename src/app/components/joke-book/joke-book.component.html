@@ -2,16 +2,16 @@
   <button (click)="pauseFeed = !pauseFeed">{{ pauseFeed ? 'Play' : 'Pause' }}</button>
   <div class="tab-container">
     <button class="tab" (click)="setTab('FEED')">Joke Feed</button>
-    <button class="tab" (click)="setTab('FAV')">Favorites</button>
+    <button class="tab" (click)="setTab('FAV')">Favorites [{{this.favoriteJokes.length}}/{{this.bufferAmount}}]</button>
   </div>
   <div class="tab-content-container" [ngSwitch]="currentTab">
     <ng-container *ngSwitchCase="'FEED'">
       <h2>Feed</h2>
-      <app-joke-list [items]="(jokeFeedItems$ | async) ?? []"></app-joke-list>
+      <app-joke-list [items]="(jokeFeedItems$ | async) ?? []" (itemClicked)="itemClicked($event)"></app-joke-list>
     </ng-container>
     <ng-container *ngSwitchCase="'FAV'">
       <h2>Favs</h2>
-      <app-joke-list></app-joke-list>
+      <app-joke-list [items]="favoriteJokes" (itemClicked)="itemClicked($event)"></app-joke-list>
     </ng-container>
   </div>
 </div>

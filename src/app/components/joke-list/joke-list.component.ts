@@ -1,9 +1,9 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {JokeListItemComponent} from '../joke-list-item/joke-list-item.component';
 import {NgForOf} from '@angular/common';
 import {JokeItem} from '../../shared/types';
 import {
-  animate, query,
+  animate,
   style,
   transition,
   trigger
@@ -36,7 +36,17 @@ export class JokeListComponent {
   @Input()
   items!: JokeItem[];
 
+  @Input()
+  favoriteIds!: string[];
+
+  @Output()
+  itemClicked = new EventEmitter<JokeItem>();
+
   trackByFn(index: number, item: JokeItem) {
     return item.id;
+  }
+
+  jokeClicked(item: JokeItem) {
+    this.itemClicked.emit(item);
   }
 }

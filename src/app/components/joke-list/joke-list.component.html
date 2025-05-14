@@ -4,6 +4,7 @@
     [@slideInOut]>
     <app-joke-list-item
       [item]="item"
+      (itemClicked)="itemClicked.emit($event)"
     ></app-joke-list-item>
   </div>
 </div>

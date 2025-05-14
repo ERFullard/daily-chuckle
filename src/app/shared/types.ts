@@ -1,5 +1,5 @@
 export type JokeItem = {
-  id: number;
+  id: string;
   icon_url: string;
   url: string;
   value: string;

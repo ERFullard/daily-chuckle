@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {JokeItem} from '../../shared/types';
 import {NgOptimizedImage} from '@angular/common';
 
@@ -11,6 +11,6 @@ import {NgOptimizedImage} from '@angular/common';
   styleUrl: './joke-list-item.component.css'
 })
 export class JokeListItemComponent {
-  @Input()
-  item!: JokeItem;
+  @Input() item!: JokeItem;
+  @Output() itemClicked = new EventEmitter<JokeItem>();
 }
