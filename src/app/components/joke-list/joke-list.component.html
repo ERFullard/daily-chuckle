@@ -1,0 +1,9 @@
+<div>
+  <div
+    *ngFor="let item of items; index as i; trackBy: trackByFn"
+    [@slideInOut]>
+    <app-joke-list-item
+      [item]="item"
+    ></app-joke-list-item>
+  </div>
+</div>
