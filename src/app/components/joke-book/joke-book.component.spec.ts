@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { JokeBookComponent } from './joke-book.component';
+import {provideZoneChangeDetection} from '@angular/core';
+import {provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
+import {provideAnimations} from '@angular/platform-browser/animations';
 
 describe('JokeBookComponent', () => {
   let component: JokeBookComponent;
@@ -8,7 +11,12 @@ describe('JokeBookComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [JokeBookComponent]
+      imports: [JokeBookComponent],
+      providers: [
+        provideZoneChangeDetection({ eventCoalescing: true }),
+        provideHttpClient(withInterceptorsFromDi()),
+        provideAnimations()
+      ]
     })
     .compileComponents();
 
@@ -17,7 +25,7 @@ describe('JokeBookComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should be created', () => {
     expect(component).toBeTruthy();
   });
 });

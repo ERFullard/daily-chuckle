@@ -36,17 +36,10 @@ export class JokeListComponent {
   @Input()
   items!: JokeItem[];
 
-  @Input()
-  favoriteIds!: string[];
-
   @Output()
   itemClicked = new EventEmitter<JokeItem>();
 
   trackByFn(index: number, item: JokeItem) {
     return item.id;
-  }
-
-  jokeClicked(item: JokeItem) {
-    this.itemClicked.emit(item);
   }
 }
