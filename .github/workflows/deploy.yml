@@ -29,7 +29,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm ci
-    - run: npm run build -- --base-href /daily-chuckle/ --if-present
+    - run: npm run build -- --base-href /daily-chuckle/
     - run: npm test -- --watch=false --browsers=ChromeHeadless
     - name: Upload a Build Artifact
       uses: actions/upload-pages-artifact@v3
