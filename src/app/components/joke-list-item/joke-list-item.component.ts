@@ -1,11 +1,12 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {JokeItem} from '../../shared/types';
-import {NgOptimizedImage} from '@angular/common';
+import {NgClass, NgOptimizedImage} from '@angular/common';
 
 @Component({
   selector: 'app-joke-list-item',
   imports: [
-    NgOptimizedImage
+    NgOptimizedImage,
+    NgClass
   ],
   templateUrl: './joke-list-item.component.html',
   styleUrl: './joke-list-item.component.css'

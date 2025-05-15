@@ -1,4 +1,4 @@
-<div class="list-item" (click)="itemClicked.emit(item)">
-  <img [ngSrc]="item.icon_url" [width]="20" [height]="20" alt="joke icon">
+<div class="list-item" [ngClass]="{'favorite': item.favorite}" (click)="itemClicked.emit(item)">
+  <img [ngSrc]="item.icon_url" [width]="32" [height]="32" alt="joke icon">
   <p>{{item.value}}</p>
 </div>

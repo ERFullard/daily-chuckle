@@ -55,8 +55,10 @@ export class JokeBookComponent {
 
   itemClicked(item: JokeItem) {
     if (this.favoriteJokes.some(joke => joke.id === item.id)) {
+      item.favorite = false;
       this.favoriteJokes.splice(this.favoriteJokes.indexOf(item), 1);
     } else if (this.favoriteJokes.length < this.bufferAmount) {
+      item.favorite = true;
       this.favoriteJokes.push(item);
     }
 
