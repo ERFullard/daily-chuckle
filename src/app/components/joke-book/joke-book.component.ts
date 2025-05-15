@@ -31,7 +31,7 @@ type AvailableTabs = 'FEED' | 'FAV';
 export class JokeBookComponent {
 
   private cookieName = 'COOKIE_NORRIS';
-  bufferAmount: number = 4;
+  bufferAmount: number = 10;
   pauseFeed: boolean = false;
   favoriteJokes: JokeItem[] = [];
   currentTab: AvailableTabs = 'FEED';
