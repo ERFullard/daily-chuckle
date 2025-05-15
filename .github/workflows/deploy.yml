@@ -32,10 +32,10 @@ jobs:
     - run: npm run build --if-present
     - run: npm test -- --watch=false --browsers=ChromeHeadless
     - name: Upload a Build Artifact
-      uses: actions/upload-artifact@v4.6.2
+      uses: actions/upload-pages-artifact@v3
       with:
         name: github-pages
-        path: dist/daily-chuck-le/browser
+        path: dist/daily-chuck-le
 
   deploy:
     environment:
