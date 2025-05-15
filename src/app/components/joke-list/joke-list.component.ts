@@ -20,14 +20,12 @@ import {
   animations: [
     trigger('slideInOut', [
       transition(':enter', [
-        style({ overflow: 'hidden', height: '0', transform: 'translateX(100%)', opacity: '0' }),
-        animate('150ms', style({ height: '*'})),
-        animate('300ms', style({ transform: 'translateX(0)', opacity: 1})),
+        style({ transform: 'translateX(100%)' }),
+        animate('300ms', style({ transform: 'translateX(0)'})),
       ]),
       transition(':leave', [
-        style({ overflow: 'hidden'}),
-        animate('300ms', style({ transform: 'translateX(-100%)', opacity: 0})),
-        animate('150ms', style({ height: '0'})),
+        style({ overflow: 'hidden' }),
+        animate('300ms', style({ transform: 'translateX(-100%)', height: 0})),
       ]),
     ])
   ]

@@ -9,7 +9,7 @@ import {
   interval,
   Observable,
   scan,
-  switchMap, tap
+  switchMap,
 } from 'rxjs';
 import {CookieService} from 'ngx-cookie-service';
 
@@ -44,14 +44,15 @@ export class JokeBookComponent {
       ),
       interval(5000).pipe(
         filter(() => !this.pauseFeed),
-        switchMap(jokeFeedItems => this.jokeService.getRandomJoke()),
+        switchMap(() => this.jokeService.getRandomJoke()),
       )
     ).pipe(
       scan((acc: JokeItem[], value) => [...acc.slice(1 - this.bufferAmount), value], []),
     );
 
-    if (this.cookieService.check(this.cookieName))
+    if (this.cookieService.check(this.cookieName)) {
       this.favoriteJokes = JSON.parse(this.cookieService.get(this.cookieName));
+    }
   }
 
   itemClicked(item: JokeItem) {

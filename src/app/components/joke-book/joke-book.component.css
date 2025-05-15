@@ -1,7 +1,14 @@
+.book-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .tab-container {
   display: flex;
   flex-direction: row;
   margin-bottom: 16px;
+  width: min(100%, 1000px);
 }
 
 .tab {
@@ -25,6 +32,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
+  width: min(100%, 800px);
 }
 
 .tab-content-container button {
@@ -36,9 +45,19 @@
   border-radius: 8px;
   width: 150px;
   padding: 8px;
+  cursor: pointer;
 }
 
 .tab-content-container button.paused {
-  background: #3d913d;
+  background: #4b9c4b;
   border-color: #095309;
 }
+
+.tab-content-container button:hover {
+  background-color: #b64848;
+}
+
+.tab-content-container button.paused:hover {
+  background-color: #268a26;
+}
+
