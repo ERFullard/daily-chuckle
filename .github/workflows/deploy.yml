@@ -35,7 +35,7 @@ jobs:
       uses: actions/upload-artifact@v4.6.2
       with:
         name: github-pages
-        path: dist/daily-chuck-le
+        path: dist/daily-chuck-le/browser
 
   deploy:
     environment:
