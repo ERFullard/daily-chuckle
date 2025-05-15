@@ -1,0 +1,9 @@
+.header {
+  font-family: Baskerville, sans-serif;
+  text-align: center;
+}
+
+.content {
+  padding: 0 max(10vw, 32px);
+  font-family: "Roboto Light", sans-serif;
+}

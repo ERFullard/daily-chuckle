@@ -2,14 +2,15 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  border: 2px solid #cecece;
+  border: 2px solid rgba(0, 0, 0, 0.1);
   border-radius: 4px;
   margin: 12px 0;
   padding: 12px;
+  cursor: pointer;
 }
 
 .list-item img {
-  margin-right: 8px;
+  margin-right: 16px;
 }
 
 .list-item p {
