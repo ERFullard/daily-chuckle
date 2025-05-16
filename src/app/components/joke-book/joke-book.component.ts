@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {AsyncPipe, NgClass, NgSwitch, NgSwitchCase} from '@angular/common';
+import {AsyncPipe} from '@angular/common';
 import {JokeListComponent} from '../joke-list/joke-list.component';
 import {JokeItem} from '../../shared/types';
 import {ChuckNorrisService} from '../../shared/chuck-norris.service';
@@ -18,15 +18,12 @@ type AvailableTabs = 'FEED' | 'FAV';
 @Component({
   selector: 'app-joke-book',
   imports: [
-    NgSwitch,
-    NgSwitchCase,
     JokeListComponent,
     AsyncPipe,
-    NgClass,
   ],
   providers: [CookieService],
   templateUrl: './joke-book.component.html',
-  styleUrl: './joke-book.component.css'
+  styleUrl: './joke-book.component.css',
 })
 export class JokeBookComponent {
 

@@ -4,19 +4,24 @@
   align-items: center;
   border: 2px solid rgba(0, 0, 0, 0.1);
   border-radius: 4px;
-  margin: 12px 0;
+  margin: 6px 0;
   padding: 12px;
-  cursor: pointer;
 }
 
 .list-item img {
   margin-right: 16px;
 }
 
-.list-item p {
-  margin: 0;
+.list-item svg {
+  margin-left: 16px;
+  cursor: pointer;
 }
 
-.list-item.favorite {
-  border-color: dodgerblue;
+.list-item p {
+  margin: 0;
+  flex: 1;
+}
+
+.list-item.favorite svg {
+  color: #ffbe23;
 }

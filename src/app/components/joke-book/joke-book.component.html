@@ -1,19 +1,21 @@
 <div class="book-container">
   <div class="tab-container">
-    <button class="tab" [ngClass]="{'active': currentTab === 'FEED'}" (click)="setTab('FEED')">
+    <button class="tab" [class.active]="currentTab === 'FEED'" (click)="setTab('FEED')">
       Joke Feed
     </button>
-    <button class="tab" [ngClass]="{'active': currentTab === 'FAV'}" (click)="setTab('FAV')">
+    <button class="tab" [class.active]="currentTab === 'FAV'" (click)="setTab('FAV')">
       Favorites [{{this.favoriteJokes.length}}/{{this.bufferAmount}}]
     </button>
   </div>
-  <div class="tab-content-container" [ngSwitch]="currentTab">
-    <ng-container *ngSwitchCase="'FEED'">
-      <button [ngClass]="{'paused': pauseFeed}" (click)="pauseFeed = !pauseFeed">{{ pauseFeed ? 'Play' : 'Pause' }}</button>
-      <app-joke-list [items]="(jokeFeedItems$ | async) ?? []" (itemClicked)="itemClicked($event)"></app-joke-list>
-    </ng-container>
-    <ng-container *ngSwitchCase="'FAV'">
-      <app-joke-list [items]="favoriteJokes" (itemClicked)="itemClicked($event)"></app-joke-list>
-    </ng-container>
+  <div class="tab-content-container">
+    @switch (currentTab) {
+      @case ('FEED') {
+        <button [class.paused]="pauseFeed" (click)="pauseFeed = !pauseFeed">{{ pauseFeed ? 'Play' : 'Pause' }}</button>
+        <app-joke-list [items]="(jokeFeedItems$ | async) ?? []" (itemClicked)="itemClicked($event)"></app-joke-list>
+      }
+      @case ('FAV') {
+        <app-joke-list [items]="favoriteJokes" (itemClicked)="itemClicked($event)"></app-joke-list>
+      }
+    }
   </div>
 </div>

@@ -1,6 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {JokeListItemComponent} from '../joke-list-item/joke-list-item.component';
-import {NgForOf} from '@angular/common';
 import {JokeItem} from '../../shared/types';
 import {
   animate,
@@ -13,7 +12,6 @@ import {
   selector: 'app-joke-list',
   imports: [
     JokeListItemComponent,
-    NgForOf
   ],
   templateUrl: './joke-list.component.html',
   styleUrl: './joke-list.component.css',
@@ -36,8 +34,4 @@ export class JokeListComponent {
 
   @Output()
   itemClicked = new EventEmitter<JokeItem>();
-
-  trackByFn(index: number, item: JokeItem) {
-    return item.id;
-  }
 }
