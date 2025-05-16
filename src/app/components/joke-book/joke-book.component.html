@@ -4,13 +4,13 @@
       Joke Feed
     </button>
     <button class="tab" [class.active]="currentTab === 'FAV'" (click)="setTab('FAV')">
-      Favorites [{{this.favoriteJokes.length}}/{{this.bufferAmount}}]
+      Favorites [{{this.favoriteJokes.length}}/{{this.favoriteLimit}}]
     </button>
   </div>
   <div class="tab-content-container">
     @switch (currentTab) {
       @case ('FEED') {
-        <button [class.paused]="pauseFeed" (click)="pauseFeed = !pauseFeed">{{ pauseFeed ? 'Play' : 'Pause' }}</button>
+        <button [class.paused]="feedStatus" (click)="toggleFeed()">{{ feedStatus ? 'Play' : 'Pause' }}</button>
         <app-joke-list [items]="(jokeFeedItems$ | async) ?? []" (itemClicked)="itemClicked($event)"></app-joke-list>
       }
       @case ('FAV') {
